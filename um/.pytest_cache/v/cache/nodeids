@@ -1,0 +1,6 @@
+[
+  "test_um.py::test_OnlyUM",
+  "test_um.py::test_RandomUm",
+  "test_um.py::test_UMWITHDOT",
+  "test_um.py::test_UMwITHMark"
+]

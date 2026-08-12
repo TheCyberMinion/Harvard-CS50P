@@ -1,0 +1,5 @@
+[
+  "test_seasons.py::test_getDobAndValidate",
+  "test_seasons.py::test_getMinutes",
+  "test_seasons.py::test_printMinutes"
+]

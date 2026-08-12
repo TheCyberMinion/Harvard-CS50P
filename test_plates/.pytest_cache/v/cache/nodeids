@@ -1,0 +1,8 @@
+[
+  "test_plates.py::test_CharacterAfterNumeber",
+  "test_plates.py::test_DecimalNumber",
+  "test_plates.py::test_MoreThan6",
+  "test_plates.py::test_NumberInEnd",
+  "test_plates.py::test_NumberInEndBut0",
+  "test_plates.py::test_StartWithNumnber"
+]

@@ -1,0 +1,8 @@
+[
+  "tes_watch.py::test_Changing",
+  "tes_watch.py::test_ChangingLong",
+  "tes_watch.py::test_ChangingSmall",
+  "tes_watch.py::test_Long",
+  "tes_watch.py::test_None",
+  "tes_watch.py::test_Small"
+]

@@ -1,0 +1,6 @@
+[
+  "test_working.py::test_Error",
+  "test_working.py::test_MissingToError",
+  "test_working.py::test_WithMin",
+  "test_working.py::test_WithNoMin"
+]

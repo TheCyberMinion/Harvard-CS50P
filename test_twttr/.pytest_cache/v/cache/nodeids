@@ -1,0 +1,11 @@
+[
+  "test_twttr.py::test_AllOnlyVowelsWithNumbers",
+  "test_twttr.py::test_EmptyStr",
+  "test_twttr.py::test_Lowercase",
+  "test_twttr.py::test_MixedCase",
+  "test_twttr.py::test_MixedWithNumber",
+  "test_twttr.py::test_OnlyVowels",
+  "test_twttr.py::test_SpecialChar",
+  "test_twttr.py::test_Uppercase",
+  "test_twttr.py::test_WithNumber"
+]

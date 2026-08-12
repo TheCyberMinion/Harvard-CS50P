@@ -1,0 +1,8 @@
+[
+  "test_bank/test_bank.py::test_HnumberLetter",
+  "test_bank/test_bank.py::test_Large",
+  "test_bank/test_bank.py::test_MIX",
+  "test_bank/test_bank.py::test_NoHNumberLetter",
+  "test_bank/test_bank.py::test_Number",
+  "test_bank/test_bank.py::test_Small"
+]

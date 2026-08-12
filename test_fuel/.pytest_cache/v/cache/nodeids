@@ -1,0 +1,12 @@
+[
+  "test_fuel.py::test_1Percent",
+  "test_fuel.py::test_99Percent",
+  "test_fuel.py::test_Edgefractions",
+  "test_fuel.py::test_Errors",
+  "test_fuel.py::test_InBetweenPercent",
+  "test_fuel.py::test_NonDigitError",
+  "test_fuel.py::test_XmoreThanY",
+  "test_fuel.py::test_XorYisNegative",
+  "test_fuel.py::test_ZaeroError",
+  "test_fuel.py::test_fractions"
+]
