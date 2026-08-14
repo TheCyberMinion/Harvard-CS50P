@@ -1,0 +1,1758 @@
+Delivered-To: userExample@gmail.com
+Received: by 2002:ac0:f986:0:b0:3f9:b52b:4320 with SMTP id f6csp635266ims;
+        Wed, 12 Aug 2026 03:06:33 -0700 (PDT)
+X-Received: by 2002:a17:90b:1b43:b0:38d:ef48:b04 with SMTP id 98e67ed59e1d1-393013e58e1mr3827503a91.10.1786529192827;
+        Wed, 12 Aug 2026 03:06:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786529192; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ghODwVYW16kupfKZkEPU0xRo0ktFerpr8BzwIeetVbh9jgk9Op4swe9D3tv4klZ3Qi
+         PZn5Gyxz65Fxd1OoEcyAFmJ5F+JkUFCw6h9YhQnAcPD/MYSLcidFHKclxj8kEA8Nrh6R
+         oZqxJpVm6IY6FJxlhk+kPm4Fg5Y7vbSFk8S4ave/1VnKjHCDJ+ip277kv0c3cbfcm8Iw
+         fMd+NkmEohQwIu0hpw5PeN8RVLfhbj2MrvMLh6NuU/DXO/vCEibdOoirEAVJEGG5vbVj
+         5XMX49g8A/fLZEdg2CG4jbvs62/tWvc+NVjMGIQS7I61FfFuqHK5tw2gpZgwTr46m9Nk
+         UYvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=feedback-id:mime-version:message-id:user-agent:reply-to
+         :list-unsubscribe-post:list-unsubscribe:subject:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=JcOnWNpJ8nxRb06xoXMGCP8KzUwE+a155Ow7r8CWQPY=;
+        fh=iDYOKUrdb2Sf4ojmlprxHLNvhMkSrhu9QFOVW7Dv/kM=;
+        b=hnao+HdNaeAw0/qSJYgiChthGfSCw/IiwK1br0c6tKRHRn7gPUGuDAxBQbpjRyn34a
+         sU5DWtDjELJGQ4/xuwKzgk3XRcqgXbE5F6Ouxxi6Kb+C/Sfe8lFlrQb6oQ+f4F9gDgkA
+         cOM+o4yo+sryWie9620rz8rORDaTIMU2EALclQA7SDnid9uIN04LhDJHdEj5MY0YUwkt
+         WWVR0NZNdrZ6+ff67d+qSXAZ4wTCB06fW+5M6SOdcpHOce6Gz1Jl4UsfnBwPQo7nO4LM
+         rjbhKHaD0yT51OXduPRttz78t/monl5FTUYSR7gDvVl1yN9fZvEy5FJyBgUFulNXCmUP
+         3/Hw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@internshala.com header.s=tnacblvl4oxts23mezwytf54td7nyowf header.b="YL/59g8U";
+       dkim=pass header.i=@amazonses.com header.s=rlntogby6xsxlfnvyxwnvvhttakdsqto header.b=XQy2KXyj;
+       spf=pass (google.com: domain of 12345@ap-south-1.amazonses.com designates 76.223.181.97 as permitted sender) smtp.mailfrom=12345@ap-south-1.amazonses.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=internshala.com
+Return-Path: <12345@ap-south-1.amazonses.com>
+Received: from c181-97.smtp-out.ap-south-1.amazonses.com (c181-97.smtp-out.ap-south-1.amazonses.com. [76.223.181.97])
+        by mx.google.com with ESMTPS id a92af1059eb24-1412458a41fsi11026702c88.50.2026.08.12.03.06.31
+        for <userExample@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 03:06:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 12345@ap-south-1.amazonses.com designates 76.223.181.97 as permitted sender) client-ip=76.223.181.97;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@internshala.com header.s=tnacblvl4oxts23mezwytf54td7nyowf header.b="YL/59g8U";
+       dkim=pass header.i=@amazonses.com header.s=rlntogby6xsxlfnvyxwnvvhttakdsqto header.b=XQy2KXyj;
+       spf=pass (google.com: domain of 12345@ap-south-1.amazonses.com designates 76.223.181.97 as permitted sender) smtp.mailfrom=12345@ap-south-1.amazonses.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=internshala.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=tnacblvl4oxts23mezwytf54td7nyowf; d=internshala.com;
+	t=1786529191;
+	h=Date:From:To:Subject:List-Unsubscribe:List-Unsubscribe-Post:Reply-To:Message-ID:Mime-Version:Content-Type;
+	bh=+urXHEirkwdweGHqTy4lmKW1Mt2xQExXeoNbPfRJMjc=;
+	b=YL/59g8UWp/mDTzw/i/OELtSFyIdz0GPoRZwMbjTLh6dMtno2VWBWTwKS7BqyyrK
+	mqdb9rNLXV7YX4vT9b1cglQ9bT2VIAfYZi/coAh4zqQFF7PyqkkQVa7Vf2XF7UWPI8l
+	KH5e7OPjfIJcIheuGEUjY7MY4YCzoo6/Nq9pMFw0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=rlntogby6xsxlfnvyxwnvvhttakdsqto; d=amazonses.com; t=1786529191;
+	h=Date:From:To:Subject:List-Unsubscribe:List-Unsubscribe-Post:Reply-To:Message-ID:Mime-Version:Content-Type:Feedback-ID;
+	bh=+urXHEirkwdweGHqTy4lmKW1Mt2xQExXeoNbPfRJMjc=;
+	b=XQy2KXyj22xF5CMCH1qvpv8nkLtBXNsCJHo+1xOoseutWODe27GFsFyMPAl/QtFF
+	maH51s9R4uVGhSTdSVYJ3g0W51LddfUFo1lYHSV+2fXb9aPh603pC+UaMMfqtX4YhDw
+	ByR88cTV/CtIYAuqW4bzDqWpnCMfSoUdyKhnEikA=
+Date: Wed, 12 Aug 2026 10:06:31 +0000
+From: Internshala <student@internshala.com>
+To: userExample@gmail.com
+Subject: =?UTF-8?Q?Hiring=20now:=20new=20opportunities=20at=20Tata=20Consultancy?= =?UTF-8?Q?=20Services=20and=20others?=
+List-Unsubscribe: https://internshala.com/subscribe/unsubscribe_one_click/exmapleText=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Reply-To: No Reply <no-reply@internshala.com>
+User-Agent: internshala.com
+X-Sender: student@internshala.com
+X-Mailer: internshala.com
+X-Priority: 3 (Normal)
+Message-ID: <12345@ap-south-1.amazonses.com>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="B_ALT_6a7c45a747695"
+Feedback-ID: ::1.ap-south-1.xot7BVmptk15rTqvOHujiljEnkooidFXCgYHpb0GqHE=:AmazonSES
+X-SES-Outgoing: 2026.08.12-76.223.181.97
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+--B_ALT_6a7c45a747695
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+userExample, check out jobs matching your experience and desired CTC. Apply for
+free on Internshala Jobs
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+
+
+
+
+
+ Hi userExample,
+ Your dream job might be right here! Check out our curated list for you.
+
+
+
+
+
+
+
+
+
+ Product Engineer
+
+
+
+
+
+
+ Tata Consultancy Services
+
+
+
+
+
+ Maharashtra
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 3 year(s)
+
+
+
+
+
+
+
+
+
+ Today
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Media Manager
+
+
+
+
+
+
+ VelivoHR
+
+
+
+
+
+ Maharashtra
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 2 year(s)
+
+
+
+
+
+
+
+
+
+ 3 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Paid Media Executive
+
+
+
+
+
+
+ Koffeetech Communications
+
+
+
+
+
+ Maharashtra
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 1 year(s)
+
+
+
+
+
+
+
+
+
+ 3 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Assistant Professor
+
+
+
+
+
+
+ Jaypee University Of Information Technology, Waknaghat
+
+
+
+
+
+ Solan
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ No experience required
+
+
+
+
+
+
+
+
+
+ 1 day ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Campaign Manager
+
+
+
+
+
+
+ Sabio
+
+
+
+
+
+ Nanakramguda
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 2 year(s)
+
+
+
+
+
+
+
+
+
+ 2 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Deputy Manager / Manager- Business Development (US Markets)
+
+
+
+
+
+
+ Ajanta Pharma Ltd
+
+
+
+
+
+ Maharashtra
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 2 year(s)
+
+
+
+
+
+
+
+
+
+ 2 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Assistant Professor (CSE/CE/IT)
+
+
+
+
+
+
+ P P SAVANI UNIVERSITY
+
+
+
+
+
+ Surat
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ No experience required
+
+
+
+
+
+
+
+
+
+ Today
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Senior Data Protection Consultant
+
+
+
+
+
+
+ DPDP Consultants
+
+
+
+
+
+ Delhi
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ 2 year(s)
+
+
+
+
+
+
+
+
+
+ 3 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Product Support Engineer
+
+
+
+
+
+
+ Insight Global
+
+
+
+
+
+ Remote
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ No experience required
+
+
+
+
+
+
+
+
+
+ 1 week ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+
+
+
+
+
+
+
+ Junior Analyst
+
+
+
+
+
+
+ Objectways
+
+
+
+
+
+ Coimbatore
+
+
+ Immediately
+
+
+ Competitive salary
+
+
+ No experience required
+
+
+
+
+
+
+
+
+
+ 4 days ago
+
+
+
+
+
+ Job
+ Apply now
+
+
+
+
+ These results are based on the preferences you have filled. You can change
+them here.
+
+
+ View more jobs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Internshala (Scholiverse Educare Pvt. Ltd.)901A/B, Iris Tech Park, Sector
+48, Gurugram, Haryana, India - 122018
+ Not keen on career commitments? Unsubscribe here to break up with us.
+
+ Please do not reply directly to this email, as this inbox is unmonitored.
+For support, please visit our Help Center or email us at
+helpdesk@internshala.com.
+
+
+--B_ALT_6a7c45a747695
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"font-family:'Arial';font-size:15px">
+    <div style=3D" max-width:640px;margin:auto">
+        <span style=3D"display:none !important; visibility:hidden; opacity:=
+0; color:transparent; height:0; width:0;">userExample, check out jobs matching=
+ your experience and desired CTC. Apply for free on Internshala Jobs       =
+     &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+        </span>
+        <div style=3D"padding:12px 0 16px 0">
+            <img style=3D"max-height:44px;max-width:144px;display:block;mar=
+gin:0 auto" src=3D"https://cdn.internshala.com//static/images/mail/new/inte=
+rnshala_logo.png">
+        </div>
+                <div style=3D"color:#484848;max-width:640px;margin:0 auto">
+            <h5 style=3D"margin:8px 0 8px;line-height:24px;color:#333333;fo=
+nt-size:18px">Hi userExample,</h5>
+            <p style=3D"line-height:26px;font-size:16px;margin:0 0 16px">Yo=
+ur dream job might be right here! Check out our curated list for you.</p>
+            <div style=3D"border:1px solid #DDDDDD;box-sizing:border-box;bo=
+rder-radius:8px;padding:16px 16px 0">
+                                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+product-engineer-job-in-maharashtra-at-tata-consultancy-services1786433535%=
+2F12345%2F12345/1/010123451587-1b0ac12345-4067-aaaf-17653ab=
+d13500/-OGhRbm9cVTcCvircEgGcwRce2TivmBzhLqrDdq1Jik=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3237296">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Product Engineer               =
+                         </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Tata Consultancy Services </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Maha=
+rashtra</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">3 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #2FB212; background-color: #F1F=
+FE5;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-success.png" sty=
+le=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            Today                          =
+              </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+media-manager-job-in-maharashtra-at-velivohr1786174873%2F12345%2F12345=
+7w6q/1/12345/iYRexC_=
+ODnl7CiMpGwhD2uoIiedR77iI7RFgFdB_Orc=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3235007">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Media Manager                  =
+                      </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> VelivoHR </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Maha=
+rashtra</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">2 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #4383D6; background-color: #E7F=
+6FF;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-info.png" style=
+=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            3 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+paid-media-executive-job-in-maharashtra-at-koffeetech-communications1786174=
+827%2F12345%2F12345/1/010123451587-1b0ac12345-4067-aaaf-176=
+53abd13500/jwJZKSWI76NqJVdl0gZY-wVyhsG0Blb6_pnv0XNTP68=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3235002">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Paid Media Executive           =
+                             </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Koffeetech Communications </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Maha=
+rashtra</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">1 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #4383D6; background-color: #E7F=
+6FF;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-info.png" style=
+=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            3 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+fresher-assistant-professor-job-in-solan-at-jaypee-university-of-informatio=
+n-technology-waknaghat1786347377%2F12345%2F12345/1/01012345158=
+7-1b0ac12345-4067-aaaf-17653abd13500/ngQjTGFIcPKZQ40etkTLJHKMpJxlJ=
+RYdV4H5qHMJ5gI=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3236343">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Assistant Professor            =
+                            </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Jaypee University Of Information Technolo=
+gy, Waknaghat </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Sola=
+n</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">No experience required</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #2FB212; background-color: #F1F=
+FE5;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-success.png" sty=
+le=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            1 day ago                      =
+                  </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+campaign-manager-job-in-nanakramguda-at-sabio1786261145%2F12345%2F12345=
+t7w6q/1/12345/6pXNMH=
+9a4WhVZYVHa8RuKvSXHGw-V-FPVzMDEdidwfM=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3235651">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Campaign Manager               =
+                         </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Sabio </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Nana=
+kramguda</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">2 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #2FB212; background-color: #F1F=
+FE5;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-success.png" sty=
+le=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            2 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+deputy-manager-manager-business-development-us-markets-job-in-maharashtra-a=
+t-ajanta-pharma-ltd1786261153%2F12345%2F12345/1/010123451587-1=
+b0ac12345-4067-aaaf-17653abd13500/FCoiDKm8iSpoiRGZW9tJCoRfsjnUncvq=
+KMY_e5q0NEs=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3235662">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Deputy Manager / Manager- Busin=
+ess Development (US Markets)                                        </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Ajanta Pharma Ltd </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Maha=
+rashtra</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">2 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #2FB212; background-color: #F1F=
+FE5;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-success.png" sty=
+le=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            2 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+fresher-assistant-professor-cse-ce-it-job-in-surat-at-p-p-savani-university=
+1786433589%2F12345%2F12345/1/010123451587-1b0ac12345-4067-a=
+aaf-17653abd13500/CnIZYzmV0f0Et1NXZFLl5Nnp3k2xH-Y3xwIODRMBTGk=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3237309">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Assistant Professor (CSE/CE/IT)=
+                                        </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> P P SAVANI UNIVERSITY </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Sura=
+t</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">No experience required</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #2FB212; background-color: #F1F=
+FE5;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-success.png" sty=
+le=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            Today                          =
+              </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+senior-data-protection-consultant-job-in-delhi-at-dpdp-consultants178617428=
+5%2F12345%2F12345/1/010123451587-1b0ac12345-4067-aaaf-17653=
+abd13500/pB-Wc1gYUIGbdXVpK0YXrUsux8_K-Tr1SV3ICUqXaMI=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3234745">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Senior Data Protection Consulta=
+nt                                        </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> DPDP Consultants </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Delh=
+i</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">2 year(s)</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #4383D6; background-color: #E7F=
+6FF;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-info.png" style=
+=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            3 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+fresher-remote-product-support-engineer-job-at-insight-global178574269712345=
+12345%2F12345/1/010123451587-1b0ac12345-4067-aaaf-17653abd1a=
+80-000000/0MGSY1c6ycc3BZ-bO-42vxxCCbJOVdkjcbvf8JzI2UA=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3229429">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Product Support Engineer       =
+                                 </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Insight Global </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Remo=
+te</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">No experience required</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #666666; background-color: #EEE=
+EEE;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-inactive.png" st=
+yle=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            1 week ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                   =20
+                    <a style=3D"text-decoration:none !important" href=3D"ht=
+tps://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fappcast%2Fjob%2F=
+fresher-junior-analyst-job-in-coimbatore-at-objectways1786087919%2F12345=
+%2F12345/1/0109019ff51234500=
+00/ArVuW8dmpXdPMsuC1NGNNn7al-HZa68YBD_OArsU4_M=3D258">
+
+                        <div style=3D"border-bottom:1px solid #DDDDDD;margi=
+n-top:20px" id=3D"3233761">
+                                                        <table style=3D"wid=
+th:100%" cellspacing=3D"0" cellpadding=3D"0">
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial'">
+                                        <h5 style=3D"font-size:18px;line-he=
+ight:24px;color:#008BDC;margin:0 0 2px;display:inline-block">
+                                            Junior Analyst                 =
+                       </h5>
+                                    </td>
+                                    <td rowspan=3D"2" style=3D"max-width:96=
+px;vertical-align:top">
+                                                                           =
+ </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"vertical-align:top;font-fa=
+mily:'Arial';">
+                                        <span style=3D";color:#666666;line-=
+height:22px;font-family:'Arial'"> Objectways </span>
+                                    </td>
+                                </tr>
+                            </table>
+                                                        <div style=3D"font-=
+size:0;color:#484848;line-height:22px;margin-top:12px;">
+                                <div style=3D"display:inline-block;font-siz=
+e:15px;margin:0 0 12px">
+                                    <img src=3D"https://cdn.internshala.com=
+//static/images/student_digest/location.png" style=3D"width:16px;vertical-a=
+lign:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Coim=
+batore</span>
+                                </div>
+                                                                    <div st=
+yle=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/playcircle.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">Immediately</span>
+                                    </div>
+                                                                        <di=
+v style=3D"display:inline-block;font-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/money.png" style=3D"width:16px;vertical-=
+align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px">Com=
+petitive salary</span>
+                                    </div>
+                                    <div style=3D"display:inline-block;font=
+-size:15px;margin:0 0 12px">
+                                        <img src=3D"https://cdn.internshala=
+.com//static/images/student_digest/experience.png" style=3D"width:16px;vert=
+ical-align:middle"><span style=3D"vertical-align:middle;margin:0 40px 0 4px=
+">No experience required</span>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                                                    <div st=
+yle=3D"display: inline-block;margin-bottom: 12px; height: 20px; font-size: =
+0;padding: 2px 6px;border-radius:4px;color: #4383D6; background-color: #E7F=
+6FF;">
+                                        <div style=3D"display: inline-block=
+;height: 16px; vertical-align: middle">
+                                            <img src=3D"https://cdn.interns=
+hala.com//static/images/student/premium_notification/label-info.png" style=
+=3D"width: 16px; margin-right: 4px;">
+                                        </div>
+                                        <div style=3D"display: inline-block=
+; vertical-align: middle;font-size:12px; line-height:16px;">
+                                            4 days ago                     =
+                   </div>
+                                    </div>
+                                                            </div>
+
+                            <div>
+                                <div style=3D"display:inline-block;margin:0=
+ 0 20px;border-radius:4px;font-size:13px;">
+                                    Job                                </di=
+v>
+                                <div style=3D"color:#008BDC;line-height:18p=
+x;float:right;margin:4px 0 24px">Apply now</div>
+                            </div>
+                        </div>
+                    </a>
+                                <p style=3D"margin:32px 0 24px;font-size:14=
+px;line-height:22px;text-align:center;color:#484848">
+                    These results are based on the preferences you have fil=
+led. You can change them <a href=3D"https://et.internshala.com/CL0/https:%2=
+F%2Finternshala.com%2Fuser_preference%2Fpreferences%2F12345%2F12345=
+6%3Futm_source=3Dstudent_digest/1/010123451587-1b0ac12345-4067-aaaf-=
+17653abd13500/QH3o8_QKnX2V1PqBXi5cIzxWZn_K26-gdLY0BU8qOzs=3D258" styl=
+e=3D"color:#008BDC;text-decoration:none !important">here.</a>
+                </p>
+                <div style=3D"text-align:center; margin-bottom: 24px;">
+                                                <a href=3D"https://et.inter=
+nshala.com/CL0/https:%2F%2Finternshala.com%2Fjobs%3Futm_source=3Dstudent_di=
+gest/1/12345/PsutF9L=
+jFPWEAmel2lV-svSz4YGcVGTWxnT-fGs84dU=3D258" target=3D"_blank" style=3D'back=
+ground:#00A5EC;color:#FFFFFF;padding:12px 16px;border-radius:4px;text-align=
+:center;text-decoration:none;display:inline-block;font-weight:700;font-size=
+:15px;line-height:18px;cursor:pointer;'>View more jobs</a>
+                                        </div>
+                                                            </div>
+
+           =20
+           =20
+            <div style=3D"text-align:center;color:#666666s;font-size:13px;l=
+ine-height:18px;margin: 0 0 48px">
+                <table cellspacing=3D"0" style=3D"max-width:248px;margin:24=
+px auto">
+                    <tr>
+                        <td style=3D"padding:0 16px 0 0">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid=3Dcom.internshala.app/=
+1/12345/C9yURM9PKJjH=
+FHG5feccOHFE-9RijldkWX6OX3k5SuI=3D258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://cdn.internshala.com//static/images/mail/new/social_icons/playst=
+ore.png">
+                            </a>
+                        </td>
+                        <td style=3D"padding:0 16px">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Fapps.apple.com%2Fin%2Fapp%2Finternshala-internships-jobs%2Fid6630386=
+544/1/12345/Ip6MsXWH=
+Grup_zxjQ715MCgo1Zh54DqFpcwYRJB3nik=3D258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://internshala-uploads.internshala.com/common/image/cwosb8gozp5.pn=
+g">
+                            </a>
+                        </td>
+                        <td style=3D"padding:0 16px">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Finstagram.com%2Finternshala/1/010123451587-1b0ac12345-4067-aa=
+af-17653abd13500/Ef0y1aHn-6Xj8jtEkEXwXX5tE3JwDhe_IG6cpc9pggo=3D258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://cdn.internshala.com//static/images/mail/new/social_icons/instag=
+ram.png">
+                            </a>
+                        </td>
+                        <td style=3D"padding:0 16px">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Fwww.facebook.com%2FInternshala%2F/1/010123451587-1b0ac12345-4=
+067-aaaf-17653abd13500/04Q2wdEUIdzqLzPLkT8EBZEXh7JbjwTRLV2iqn69H7I=3D=
+258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://cdn.internshala.com//static/images/mail/new/social_icons/facebo=
+ok.png">
+                            </a>
+                        </td>
+                        <td style=3D"padding:0 16px">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Ftwitter.com%2FInternshala/1/010123451587-1b0ac12345-4067-aaaf=
+-17653abd13500/gYKGPc9hMTVejiFqiyfsnZeixGVlswcs1NY5f5Br3UA=3D258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://cdn.internshala.com//static/images/mail/new/social_icons/twitte=
+r.png">
+                            </a>
+                        </td>
+                        <td style=3D"padding:0 0 0 16px">
+                            <a href=3D"https://et.internshala.com/CL0/https=
+:%2F%2Fwww.linkedin.com%2Fcompany%2Finternshala%2F/1/010123451587-1b0ac=
+12345-4067-aaaf-17653abd13500/M5xttEU4rgGtX8CQkYdtvzT-GTk28jLT-Qgj=
+bNJWGzk=3D258">
+                                <img style=3D"width:24px;display:block" src=
+=3D"https://cdn.internshala.com//static/images/mail/new/social_icons/linked=
+in.png">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <div style=3D"margin:0 0 16px 0">Internshala (Scholiverse E=
+ducare Pvt. Ltd.)<br>901A/B, Iris Tech Park, Sector 48, Gurugram, Haryana, =
+India - 122018</div>
+                <div>Not keen on career commitments? Unsubscribe <a href=3D=
+"https://et.internshala.com/CL0/https:%2F%2Finternshala.com%2Fsubscribe%2Fu=
+nsubscribe_link%2F12345%2F12345%2Fappcast_digest%2F%3Futm_source=
+=3Dstudent_digest%26utm_medium=3Dappcast_super_active_student%26utm_campaig=
+n=3D2026-08-12/1/0109019ff51234500=
+00/7v2D4GQvbeb6ebCdMx-VXa6yGqXHiwkFj5FY-7wspYw=3D258" style=3D"color:#008BD=
+C;text-decoration:none !important">here</a> to break up with us.</div>
+                <div style=3D"margin-top:16px;">
+                    Please do not reply directly to this email, as this inb=
+ox is unmonitored. For support, please visit our <a href=3D"https://et.inte=
+rnshala.com/CL0/https:%2F%2Finternshala.com%2Fstudent%2Fhelp_center%2F%3Fut=
+m_source=3Dstudent_digest/1/010123451587-1b0ac12345-4067-aaaf-17653a=
+bd13500/StkDq0Fj-wCT4KTnC7uY7ohG5YHz7nTWgSy-udNczSI=3D258">Help Cente=
+r</a> or email us at <a href=3D"mailto:helpdesk@internshala.com">helpdesk@i=
+nternshala.com</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<img border=3D'0' src=3D"https://tracking.internshala.com/em/i/o/12345=
+m" width=3D"1" height=3D"1" alt=3D"" >
+<img alt=3D"" src=3D"https://et.internshala.com/CI0/010123451587-1b0ac2=
+77-62dc-4067-aaaf-17653abd13500/9Gy3ylZXdqWl7ilK9OC-YVJZAIq2wVx2M60un=
+m2GxFE=3D258" style=3D"display: none; width: 1px; height: 1px;">
+
+--B_ALT_6a7c45a747695--
